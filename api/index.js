@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import connectDB from "./config/config.js";
 import productRoutes from "./routes/product.routes.js";
+import categoryRoutes from "./routes/category.routes.js";
 
 const app = express();
 
@@ -17,6 +18,7 @@ app.use(express.json())
 
 
 app.use("/products", productRoutes);
+app.use("/category", categoryRoutes);
 
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
